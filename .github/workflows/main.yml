@@ -6,7 +6,7 @@ jobs:
     name: Upload test reports to JIRA
     steps:
     - uses: actions/checkout@v2
-    - id: jira uplaoder
+    - id: jira
       uses: felipecpc/github-action-jira-report-uploader@v1.0.1
       with:
         jira-instance: 'jira_instance'
