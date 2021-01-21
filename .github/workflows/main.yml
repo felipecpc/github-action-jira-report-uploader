@@ -7,12 +7,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: jira
-      uses: felipecpc/github-action-jira-report-uploader@v1.0.1
+      uses: felipecpc/github-action-jira-report-uploader@v1.0.2
       with:
         jira-instance: 'jira_instance'
         jira-user: 'jira@email.com'
         jira-token: 'jira_token'
-        xray-user: 'xray_client'
+        xray-client: 'xray_client'
         xray-token: 'xray_token'
         issue-summary: '"[Automated Tests] This is the issue summary"'
         project: 'PJ'
