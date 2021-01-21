@@ -15,7 +15,12 @@ XRAY_URL="https://xray.cloud.xpand-it.com"
 XRAY_AUTH="api/v1/authenticate"
 XRAY_IMPORT_RESULT="api/v1/import/execution"
 
-
+echo "----------------------------------"
+echo "JIRA INSTANCE: $JIRA_INSTANCE"
+echo "USER: $JIRA_USER"
+echo "PROJECT: $PROJECT"
+echo "SUMMARY: $SUMMARY"
+echo "----------------------------------"
 
 ISSUE_TEMPLATE="{\"fields\": {\"project\":{\"key\": \"$PROJECT\"},\"summary\": \" $SUMMARY\",\"description\": \"Test report created automatically\",\"issuetype\": {\"name\": \"Test Execution\"}}}"
 
@@ -23,8 +28,10 @@ echo "--------------------------------------------------"
 echo " Check if the report is already created"
 echo "--------------------------------------------------"
 
-QUERY_TEMPLATE='{"jql":"project = $PROJECT AND summary ~ \"\\\"SUMMARY\\\"\" AND issuetype = \"Test Execution\"","fields":["id","key","summary"]}'
+QUERY_TEMPLATE='{"jql":"project ='"$PROJECT"' AND summary ~ \"\\\"SUMMARY\\\"\" AND issuetype = \"Test Execution\"","fields":["id","key","summary"]}'
 QUERY_RESULT=$(curl -u $JIRA_USER:$JIRA_TOKEN -X POST --data "${QUERY_TEMPLATE//SUMMARY/$SUMMARY}" -H "Content-Type: application/json" $JIRA_INSTANCE/"rest/api/2/search")
+
+echo "$QUERY_RESULT"
 
 TOTAL=$(echo $QUERY_RESULT | jq ".total")
 
@@ -49,7 +56,7 @@ for filename in $REPORT_FOLDER/*.xml; do
     echo "ℹ️  Uploading results to the UI Test execution - $filename"
     
     token=$(curl -H "Content-Type: application/json" -X POST --data "{\"client_id\": \"$XRAY_CLIENT\",\"client_secret\": \"$XRAY_SECRET\" }" $XRAY_URL/$XRAY_AUTH)
-                    echo "$token"
+    echo "$token"
     curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${token:1:${#token}-2}" --data @"$filename" $XRAY_URL/$XRAY_IMPORT_RESULT/junit?testExecKey=$JIRA_ISSUE
     echo "✅ Results uploaded to $XRAY_URL/$XRAY_IMPORT_RESULT/junit?testExecKey=$JIRA_ISSUE"
 
