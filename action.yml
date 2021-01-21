@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Jira Report Uploader'
+description: 'Upload test reports to JIRA'
 inputs:
   jira-instance:  # id of input
     description: 'jira instance address'
