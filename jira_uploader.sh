@@ -1,5 +1,5 @@
 #!/bin/bash
-JIRA_INSTANCE=$1
+JIRA_INSTANCE="$1"
 JIRA_USER="$2"
 JIRA_TOKEN="$3"
 XRAY_CLIENT="$4"
@@ -44,7 +44,7 @@ curl -u $JIRA_USER:$JIRA_TOKEN -X POST --data '{"transition":{"id":"31"}}' -H "C
 echo "--------------------------------------------------"
 echo "Upload reports to XRAY"
 echo "--------------------------------------------------"
-for filename in "$REPORT_FOLDER"/*.xml; do 
+for filename in $REPORT_FOLDER/*.xml; do 
 
     echo "ℹ️  Uploading results to the UI Test execution - $filename"
     
