@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: jira
-      uses: felipecpc/github-action-jira-report-uploader@v1.0.1
+      uses: felipecpc/github-action-jira-report-uploader@v1.0.2
       with:
         jira-instance: 'jira_instance'
         jira-user: 'jira@email.com'
