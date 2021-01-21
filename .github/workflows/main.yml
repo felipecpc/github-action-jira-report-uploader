@@ -14,6 +14,6 @@ jobs:
         jira-token: 'jira_token'
         xray-user: 'xray_client'
         xray-token: 'xray_token'
-        jira-issue: '"[Automated Tests] This is the issue summary"'
+        issue-summary: '"[Automated Tests] This is the issue summary"'
         project: 'PJ'
         report-folder: 'reports'
