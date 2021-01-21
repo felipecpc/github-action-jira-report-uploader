@@ -40,6 +40,6 @@ outputs:
 runs:
   using: "composite"
   steps: 
-    - run: ${{ github.action_path }}/jira_uploader.sh ${{ inputs.jira-user }} ${{ inputs.jira-token }} ${{ inputs.xray-client }} ${{ inputs.xray-token }} ${{ inputs.project }} ${{ inputs.issue-summary }} ${{ inputs.report-folder }}
+    - run: ${{ github.action_path }}/jira_uploader.sh ${{ inputs.jira-instance }} ${{ inputs.jira-user }} ${{ inputs.jira-token }} ${{ inputs.xray-client }} ${{ inputs.xray-token }} ${{ inputs.project }} ${{ inputs.issue-summary }} ${{ inputs.report-folder }}
       shell: bash
 
