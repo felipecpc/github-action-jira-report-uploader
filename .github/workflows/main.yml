@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  jira-report-uploader:
+    runs-on: ubuntu-latest
+    name: Upload test reports to JIRA
+    steps:
+    - uses: actions/checkout@v2
+    - id: jira uplaoder
+      uses: felipecpc/github-action-jira-report-uploader@v1.0.0
+      with:
+        jira-instance: 'jira_instance'
+        jira-user: 'jira@email.com'
+        jira-token: 'jira_token'
+        xray-user: 'xray_client'
+        xray-token: 'xray_token'
+        jira-issue: '"[Automated Tests] This is the issue summary"'
+        project: 'PJ'
+        report-folder: 'reports'

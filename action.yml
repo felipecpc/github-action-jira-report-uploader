@@ -1,0 +1,45 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  jira-instance:  # id of input
+    description: 'jira instance address'
+    required: true
+    default: ''
+  jira-user:  # id of input
+    description: 'jira user that will create the issues'
+    required: true
+    default: ''
+  jira-token:  # id of input
+    description: 'jira authentication token'
+    required: true
+    default: ''
+  xray-client:  # id of input
+    description: 'XRay Client'
+    required: true
+    default: ''
+  xray-token:  # id of input
+    description: 'XRay authentication token'
+    required: true
+    default: ''
+  issue-summary:  # id of input
+    description: 'Jira issue summary for the test execution'
+    required: true
+    default: ''
+  project:  # id of input
+    description: 'Project where the issue will be created'
+    required: true
+    default: ''
+  report-folder:  # id of input
+    description: 'Folder where reports are available'
+    required: true
+    default: ''
+outputs:
+  random-number: 
+    description: "Test execution created"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps: 
+    - run: ${{ github.action_path }}/jira_uploader.sh ${{ inputs.jira-user }} ${{ inputs.jira-token }} ${{ inputs.xray-client }} ${{ inputs.xray-token }} ${{ inputs.project }} ${{ inputs.issue-summary }} ${{ inputs.report-folder }}
+      shell: bash
+
