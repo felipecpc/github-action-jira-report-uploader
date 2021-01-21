@@ -12,7 +12,7 @@ jobs:
         jira-instance: 'jira_instance'
         jira-user: 'jira@email.com'
         jira-token: 'jira_token'
-        xray-user: 'xray_client'
+        xray-client: 'xray_client'
         xray-token: 'xray_token'
         issue-summary: '"[Automated Tests] This is the issue summary"'
         project: 'PJ'
