@@ -32,7 +32,33 @@ inputs:
   report-folder:  # id of input
     description: 'Folder where reports are available'
     required: true
+    default: 'report'
+
+  report-folder:  # id of input
+    description: 'Folder where reports are available'
+    required: true
+    default: 'report'
+
+  report-folder:  # id of input
+    description: 'Folder where reports are available'
+    required: true
+    default: 'report'
+
+  jira-in-progress-transition:  # id of input
+    description: 'Jira transition to In-progress'
+    required: true
     default: ''
+
+  jira-done-transition:  # id of input
+    description: 'Jira transition to done'
+    required: true
+    default: ''
+
+  fix-version:  # id of input
+    description: 'Jira fixVersion'
+    required: true
+    default: ''
+
 outputs:
   random-number: 
     description: "Test execution created"
@@ -40,6 +66,6 @@ outputs:
 runs:
   using: "composite"
   steps: 
-    - run: ${{ github.action_path }}/jira_uploader.sh ${{ inputs.jira-instance }} ${{ inputs.jira-user }} ${{ inputs.jira-token }} ${{ inputs.xray-client }} ${{ inputs.xray-token }} ${{ inputs.project }} ${{ inputs.issue-summary }} ${{ inputs.report-folder }}
+    - run: ${{ github.action_path }}/jira_uploader.sh ${{ inputs.jira-instance }} ${{ inputs.jira-user }} ${{ inputs.jira-token }} ${{ inputs.xray-client }} ${{ inputs.xray-token }} ${{ inputs.project }} ${{ inputs.issue-summary }} ${{ inputs.report-folder }} ${{ inputs.fix-version }} ${{ inputs.jira-in-progress-transition }} ${{ inputs.jira-done-transition }}
       shell: bash
 
