@@ -5,54 +5,51 @@ inputs:
     description: 'jira instance address'
     required: true
     default: ''
+    
   jira-user:  # id of input
     description: 'jira user that will create the issues'
     required: true
     default: ''
+
   jira-token:  # id of input
     description: 'jira authentication token'
     required: true
     default: ''
+
   xray-client:  # id of input
     description: 'XRay Client'
     required: true
     default: ''
+
   xray-token:  # id of input
     description: 'XRay authentication token'
     required: true
     default: ''
+
   issue-summary:  # id of input
     description: 'Jira issue summary for the test execution'
     required: true
     default: ''
+
   project:  # id of input
     description: 'Project where the issue will be created'
     required: true
     default: ''
-  report-folder:  # id of input
-    description: 'Folder where reports are available'
-    required: true
-    default: 'report'
 
   report-folder:  # id of input
     description: 'Folder where reports are available'
-    required: true
-    default: 'report'
-
-  report-folder:  # id of input
-    description: 'Folder where reports are available'
-    required: true
+    required: false
     default: 'report'
 
   jira-in-progress-transition:  # id of input
     description: 'Jira transition to In-progress'
-    required: true
-    default: ''
+    required: false
+    default: '21'
 
   jira-done-transition:  # id of input
     description: 'Jira transition to done'
-    required: true
-    default: ''
+    required: false
+    default: '41'
 
   fix-version:  # id of input
     description: 'Jira fixVersion'
