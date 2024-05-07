@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: jira
-      uses: felipecpc/github-action-jira-report-uploader@v1.0.2
+      uses: felipecpc/github-action-jira-report-uploader@v2.0.0
       with:
         jira-instance: 'jira_instance'
         jira-user: 'jira@email.com'
